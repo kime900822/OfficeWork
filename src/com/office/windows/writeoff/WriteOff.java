@@ -2,42 +2,31 @@ package com.office.windows.writeoff;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.Color;
-
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.xml.sax.SAXException;
 
 import com.office.utils.BigExcelReader;
-import com.office.utils.ExcelUtil;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -402,9 +391,18 @@ public class WriteOff extends JPanel {
 				num2=0;
 			}
 			
-			double amount1=Double.parseDouble(writeOff1.getTotalPriceWithoutTax())*-1;
-			double amount2=Double.parseDouble(writeOff2.getTotalPriceWithoutTax());
-			
+			double amount1;
+			double amount2;
+			if (writeOff1.getTotalPriceWithoutTax()!=null&&!"".equals(writeOff1.getTotalPriceWithoutTax())) {
+				amount1=Double.parseDouble(writeOff1.getNumber())*-1;
+			}else{
+				amount1=0;
+			}
+			if (writeOff2.getTotalPriceWithoutTax()!=null&&!"".equals(writeOff2.getTotalPriceWithoutTax())) {
+				amount2=Double.parseDouble(writeOff1.getNumber());
+			}else{
+				amount2=0;
+			}
 			
 			if (num1==num2&&amount1==amount2) {
 				return true;

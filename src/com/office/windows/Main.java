@@ -3,9 +3,6 @@ package com.office.windows;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.FlowLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.Icon;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
@@ -13,11 +10,8 @@ import javax.swing.JMenu;
 import javax.swing.JPanel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JToolBar;
-
 import com.office.windows.writeoff.WriteOff;
 
-import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import javax.swing.JTabbedPane;
 
